@@ -21,4 +21,18 @@ PROBLEM 2: Using the given description, construct a use case model for METRICSTI
 |40232390|Manaswini	Yarlagadda           |
 |11111111|Wenxue	Zhao           |
 
+# Task Allocation
+
+Throughout the completion of Deliverable 1, every team member was entrusted with an equitable distribution of responsibilities. We divided the deliverable into modules, ensuring that each team member was tasked with the implementation of a specific section. This approach was employed to promote a balanced workload and facilitate a collaborative effort towards achieving the Deliverable's objectives by making sure that each team member has participated in implementing the Problem1,Problem2,LaTex report.
+
+| Student ID | Student Name  | Task Allocated |
+| -------- | -------- | -------- |
+| 40217257   | Shashank Verma   | Problem 1,Problem 2, LaTex report   |
+| 40229629  | revanth Velagandula   | Problem 1,Problem 2, LaTex report   |
+|40234170   | Velagapudi Sri Neha   | Problem 1,Problem 2, LaTex report|
+|40232390| |Manaswini Yarlagadda | Problem 1,Problem 2, LaTex report|
+|40187305| Wenxue Zhao| Problem 1,Problem 2, LaTex report|
+|        | Manasa Yalakala| Problem 1,Problem 2, LaTex report|
+
+
 
