@@ -30,7 +30,7 @@ Throughout the completion of Deliverable 1, every team member was entrusted with
 | 40217257   | Shashank Verma   | Problem 1,Problem 2, LaTex report   |
 | 40229629  | revanth Velagandula   | Problem 1,Problem 2, LaTex report   |
 |40234170   | Velagapudi Sri Neha   | Problem 1,Problem 2, LaTex report  |
-|40232390| |Manaswini Yarlagadda | Problem 1,Problem 2, LaTex report|
+|40232390|Manaswini Yarlagadda | Problem 1,Problem 2, LaTex report|
 |40187305| Wenxue Zhao| Problem 1,Problem 2, LaTex report|
 |   2323423     | Manasa Yalakala| Problem 1,Problem 2, LaTex report|
 
