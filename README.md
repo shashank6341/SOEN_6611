@@ -15,7 +15,7 @@ Throughout the completion of Deliverable 1, every team member was entrusted with
 
 | Student Name  | Task Allocated |
 | -------- | -------- |
-| Shashank Verma   | Problem 1(formulated 2 Goal specific questions),Problem 2(Created 2 usecase descriptions), LaTex report   |
+| Shashank Verma   | 1. Formulation of SMART Goal and GQM Questions.<br>2. Defined Use Case and Use Case Scenarios.<br>3. LaTeX Documentation.<br>4. Conducted Team Meetings|
 | revanth Velagandula   | Problem 1(formulated 2 Goal specific questions),Problem 2(Created 2 usecase descriptions), LaTex report   |
 | Velagapudi Sri Neha   | Problem 1(formulated 2 Goal specific questions),Problem 2(Created 2 usecase descriptions), LaTex report  |
 |Manaswini Yarlagadda | Problem 1(formulated 2 Goal specific questions),Problem 2(Created 2 usecase descriptions), LaTex report|
