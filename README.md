@@ -27,12 +27,12 @@ Throughout the completion of Deliverable 1, every team member was entrusted with
 
 | Student ID | Student Name  | Task Allocated |
 | -------- | -------- | -------- |
-| 40217257   | Shashank Verma   | Problem 1,Problem 2, LaTex report   |
-| 40229629  | revanth Velagandula   | Problem 1,Problem 2, LaTex report   |
-|40234170   | Velagapudi Sri Neha   | Problem 1,Problem 2, LaTex report  |
-|40232390|Manaswini Yarlagadda | Problem 1,Problem 2, LaTex report|
-|40187305| Wenxue Zhao| Problem 1,Problem 2, LaTex report|
-| 40227581     | Manasa Yalakala| Problem 1,Problem 2, LaTex report|
+| 40217257   | Shashank Verma   | Problem 1(formulated 2 Goal specific questions),Problem 2(Created 2 usecase descriptions), LaTex report   |
+| 40229629  | revanth Velagandula   | Problem 1(formulated 2 Goal specific questions),Problem 2(Created 2 usecase descriptions), LaTex report   |
+|40234170   | Velagapudi Sri Neha   | Problem 1(formulated 2 Goal specific questions),Problem 2(Created 2 usecase descriptions), LaTex report  |
+|40232390|Manaswini Yarlagadda | Problem 1(formulated 2 Goal specific questions),Problem 2(Created 2 usecase descriptions), LaTex report|
+|40187305| Wenxue Zhao| Problem 1(formulated 2 Goal specific questions),Problem 2(Created 2 usecase descriptions), LaTex report|
+| 40227581     | Manasa Yalakala| Problem 1(formulated 2 Goal specific questions),Problem 2(Created 2 usecase descriptions), LaTex report|
 
 
 
