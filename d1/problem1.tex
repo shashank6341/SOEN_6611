@@ -1,7 +1,136 @@
-\section{Introduction}
+\section{1 Background Information}
 
-\section{. . .}
+The purpose of descriptive statistics is to quantitatively describe a collection of data by measures of central tendency, measures of frequency, and measures of variability. \\
+\\Let x be a random variable that can take values from a finite data set x1, x2, x3, ..., xn, with each value having the same probability. \\
+\\The minimum, m, is the smallest of the values in the given data set. (m need not be unique.)\\
+\\The maximum, M, is the largest of the values in the given data set. (M need not be unique.)\\
+\\The mode, o, is the value that appears most frequently in the given data set. (o need not be unique.)\\
+\\The median, d, is the middle number if n is odd, and is the arithmetic mean of the two middle numbers if n is even.\\
+%
+% Arithmetic Mean
+%
+\\The arithmetic mean, $\mu$, is given by
+\[ \mu = \frac{1}{n} \sum_{i=1}^{n} x_i \]\\
+%
+% Mean Absolute Deviation
+%
+\\The mean absolute deviation, MAD, is given by
+\[ \text{MAD} = \frac{1}{n} \sum_{i=1}^{n} |x_i - \mu| \]\\
+%
+% Standard Deviation
+%
+The standard deviation, $\sigma$, is given by
+\[ \sigma = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(x_i - \mu)^2} \]\\
+\\Let there be a system, called METRICSTICS (a portmanteau of METRICS and
+STATISTICS), for finding m, M, o, d, $\mu$, MAD, and $\sigma$. The system must take as input a random number of data values and output its descriptive statistics. 
 
-\subsection{. . .}
 
-\section{...}
+\vspace{100pt}
+\section{2 Problem 1}
+\vspace{10pt}
+\subsection{2.1 Smart Goal}
+\vspace{10pt}
+\normalsize{Enhance the computational efficiency of the METRICSTICS calculator and optimize its usability across all functions through a series of iterative improvements to be completed by the end of the current semester, November 2023. }\\
+\\The provided goal satisfies the SMART criteria:
+\begin{itemize}
+\item \textbf{Specific:} The goal is specific as it clearly outlines the objective to create a user friendly METRICSTICS with improved computational efficiency
+\item \textbf{Measurable:} Specific metrics are defined to measure the computational efficiency of the goal such as user feedback,Task Success Rate,processing time in milliseconds etc. 
+\item \textbf{Attainable:} The goal is both practical and attainable within the allotted timeframe and with the resources currently available. It does not entail the adoption of cutting-edge technologies or frameworks demanding extensive memory storage.
+\item \textbf{Realistic:} The goal aligns with the overall purpose and objectives of METRICSTICS. It is realistically framed considering the needs of the users and how the enhancements will benefit them.
+\item \textbf{Timely:} We have set a specific deadline to achieve the goal for completing the improvements which is the end of the current semester, November 2023
+\end{itemize}
+
+\subsection{2.2 QUESTIONS AND METRICS}
+Below are the 12 QUESTIONS and metrics related to the defined GOAL  \\ \\
+\textbf{Question 1:} How can we improve and measure the overall usability of the METRICSTICS system over iterations?
+ \\
+\textbf{Metrics:}
+\begin{itemize}
+    \item User satisfaction score calculated through LIKERT scale.
+    \item User feedback and suggestions collected through surveys or interviews.
+\end{itemize} 
+\vspace{10pt}
+\textbf{Question 2:} What is the average completion time for a new user to do a standard task in METRICSTICS? (Example - Computing the median (d)) ? \\
+\textbf{Metrics:}
+\begin{itemize}
+    \item Usability of METRICSTICS using System Usability Scale (SUS) questionnaire.
+    \item Percentage of users that completed stated activities successfully. 
+\end{itemize}
+\vspace{10pt}
+\textbf{Question 3:} How do users rate the responsiveness and speed of METRICSTICS interface during various operations? \\
+\textbf{Metrics:}
+\begin{itemize}
+    \item Measure the troublesome functionalities through User Surveys, execution time and error rate.
+    \item Measure the Task Success Rate.
+\end{itemize}
+\vspace{10pt}
+\textbf{Question 4:} What is the CPU utilization during the peak processing time for METRICSTICS when handling multiple datasets concurrently?
+ \\
+\textbf{Metrics:}
+\begin{itemize}
+    \item Measure the variation in processing time while executing a functionality across dataset of varying sizes.
+    \item Measure the memory consumption by the application.
+\end{itemize}
+\vspace{10pt}
+\textbf{Question 5:} What is the response time of METRICSTICS when generating descriptive statistics for datasets of varying sizes? \\
+\textbf{Metrics:}
+\begin{itemize}
+    \item Measure the scalability for varying datasets using response time. 
+
+    \item  Measure the resource efficiency by calculating response time per unit of resource consumption.
+\end{itemize}
+\vspace{10pt}
+\textbf{Question 6:} Are there specific operations or calculations within METRICSTICS that tend to be more resource-intensive, and if so, which ones? 
+ \\
+\textbf{Metrics:}
+\begin{itemize}
+    \item Measure the execution time (in milliseconds) for resource-intensive operations and compare it to less intensive ones.
+    \item Calculate the efficiency gain by comparing the resource consumption before and after optimization efforts for resource-intensive operations.
+\end{itemize}
+\vspace{10pt}
+\textbf{Question 7:} Are there specific data formats or structures that result in higher memory usage when processed by METRICSTICS? \\
+\textbf{Metrics:}
+\begin{itemize}
+    \item  Evaluate the memory consumption. 
+\end{itemize}
+\vspace{10pt}
+\textbf{Question 8:}: What is the average number of clicks or interactions required for a user to locate and execute a specific calculation task in METRICSTICS? \\
+\textbf{Metrics:}
+\begin{itemize}
+    \item Average clicks to find tasks.
+    \item Time to locate and execute tasks.
+\end{itemize}
+\vspace{10pt}
+\textbf{Question 9:} What strategies can be implemented to handle the even and odd sample size for a median? \\
+\textbf{Metrics:}
+\begin{itemize}
+    \item Calculate the percentage of cases where the calculated median deviates from the expected median.
+    \item Conduct user surveys to gauge user satisfaction.
+\end{itemize}
+\vspace{10pt}
+\textbf{Question 10:} What is the average time taken by the development team to implement user interface enhancements or changes based on usability feedback? \\
+\textbf{Metrics:}
+\begin{itemize}
+    \item Calculate the duration of the development cycle.
+    \item Determine the ratio of usability feedback items resolved to the total development effort in one cycle.
+\\
+\end{itemize}
+\vspace{10pt}
+\textbf{Question 11:} How frequently do critical errors or system failures occur in METRICSTICS, and what measures can be taken to reduce these incidents?  \\
+\textbf{Metrics:}
+\begin{itemize}
+    \item Conduct root cause analyses for critical errors and system failures to identify underlying issues.
+    \item ATrack the trend in critical errors and system failures over time.
+ \\
+\end{itemize}
+\vspace{10pt}
+\textbf{Question 12:} How can we improve the team’s efficiency in maintaining and improving the usability of METRICSTICS over time? \\
+\textbf{Metrics:}
+\begin{itemize}
+    \item Regular User-based survey for the improvement of usability.
+    \item Reduce the delay between issue identification and development. \\
+\vspace{10pt}
+\vspace{100pt}
+\end{itemize}
+
+

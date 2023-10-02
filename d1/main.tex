@@ -1,97 +1,110 @@
 \documentclass[letterpaper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{subfiles}
+\usepackage{titling}
 \usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{xspace}
+\usepackage{hyperref}
+\usepackage{docmute}
+\usepackage{lipsum}
+\usepackage{makecell}
+\usepackage{ragged2e}
+\usepackage{multirow}
 \usepackage[dvipsnames]{xcolor}
 \fboxsep0pt
 
 \usepackage{caption}
 \usepackage{glossaries}
 
-\usepackage{hyperref}
 \hypersetup{
   colorlinks=true,
-  linkcolor=blue,
-  filecolor=magenta,     
+  linkcolor=black,
+  filecolor=magenta,      
   urlcolor=cyan,
-  pdftitle={. . .},
+  pdftitle={This test},
   pdfpagemode=FullScreen,
 }
 \urlstyle{same}
+
 
 \renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
 \usepackage[inline]{enumitem}
 \newcommand{\METRICSTICS}{\texttt{METRICSTICS}\xspace}
 
+
 % Cover Page - Start
 
-\title{Software Measurement (SOEN 6611)\\[.5em]
+\begin{document}
+\setcounter{secnumdepth}{0}
+\begin{titlepage}
+\title{\includegraphics[height=2.0cm]{concordia_comp.png}
+\vspace{2cm}\\Software Measurement (SOEN 6611)\\[.5em]
 METRICSTICS\\[.5em]
 Deliverable - 1\\[.5em]
-Team - 'R'\\[.5em]}
-\author{Shashank Verma, Revanth Velagandula, Sri Neha Velagapudi, \\[.5em]
-Manasa Yalakala, Manaswini Yarlagadda, Wenxue Zhao\\[.5em]}
-
+{\fontsize{15}{8}\selectfont Submitted to: Prof. Pankaj Kamthan} \\
+\vspace{1cm}
+{\fontsize{15}{8}\selectfont \textbf {Team R}}
+}
+\author{Revanth Velagandula\\
+Sri Neha Velagapudi \\
+Shashank Ashokkumar Verma\\
+Manasa Yalakala\\
+Manaswini Yarlagadda\\
+Wenxue Zhao\\
+\\
+\vspace{1cm}
+\textnormal{GitHub Repository:}
+\url{https://github.com/shashank6341/soen-6611}
+}
 \date{October 2, 2023\\[.5em]}
+
+\end{titlepage}
 
 % Cover Page - End
 
-
-\begin{document}
 \maketitle
-
 \tableofcontents
 
-% \listoffigures
-% \listoftables
+\pagebreak
 
+\pagebreak
 
-
-% delete this section if no figures
-\listoffigures\addcontentsline{toc}{chapter}{List of Figures}
-% This will automatically be populated if you included figures in your report.
-
-
-%%%%%
-\chapter{Background Information}
-
-The purpose of descriptive statistics is to quantitatively describe a collection of data by measures of central tendency, measures of frequency, and measures of variability. \\
-\\Let x be a random variable that can take values from a finite data set x1, x2, x3, ..., xn, with each value having the same probability. \\
-\\The minimum, m, is the smallest of the values in the given data set. (m need not be unique.)\\
-\\The maximum, M, is the largest of the values in the given data set. (M need not be unique.)\\
-\\The mode, o, is the value that appears most frequently in the given data set. (o need not be unique.)\\
-\\The median, d, is the middle number if n is odd, and is the arithmetic mean of the two middle numbers if n is even.\\
-%
-% Arithmetic Mean
-%
-\\The arithmetic mean, $\mu$, is given by
-\[ \mu = \frac{1}{n} \sum_{i=1}^{n} x_i \]\\
-%
-% Mean Absolute Deviation
-%
-\\The mean absolute deviation, MAD, is given by
-\[ \text{MAD} = \frac{1}{n} \sum_{i=1}^{n} |x_i - \mu| \]\\
-%
-% Standard Deviation
-%
-The standard deviation, $\sigma$, is given by
-\[ \sigma = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(x_i - \mu)^2} \]\\
-\\Let there be a system, called METRICSTICS (a portmanteau of METRICS and
-STATISTICS), for finding m, M, o, d, $\mu$, MAD, and $\sigma$. The system must take as input a random number of data values and output its descriptive statistics. 
-
-
-
-
-
-
-
-\chapter{Problem 1}
 \input{problem1}
+\input{d1/problem2}
+
+
+% \chapter *{Bibliography}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{\textbf{Bibliography}}
 
 \begin{thebibliography}{. . .}
 
-\bibitem{. . .}
-\textit{. . .}
+    \bibitem{key1}
+    Prof. Pankaj Kamthan,
+    \textit{INTRODUCTION TO FRAMEWORKS FOR SOFTWARE MEASUREMENT }
+    Lecture Notes (Software Engineering 6611)
+    
+    \bibitem{key2}
+    User Modelling Diagram
+    \url{https://apps.kde.org/umbrello/}
+    
+    \bibitem{key3}
+    SMART Goals
+    \url{https://www.atlassian.com/blog/productivity/how-to-write-smart-goals#:~:text=What%20are%20SMART%20goals%3F,within%20a%20certain%20time%20frame.}
+    
+    \bibitem{key5}
+    Yulia Kosarenko,
+    \textit{Use Case Diagrams and How To Use Them}
+    Medium
+    \url{https://medium.com/business-architected/use-case-diagrams-and-how-to-use-them-b230019a98e5}
+    
+    \end{thebibliography}
 
-\end{thebibliography}
+
 \end{document}
