@@ -1,12 +1,25 @@
-\section{3 Problem 2}
+\section{3. Problem 2}
 \vspace{10pt}
 
-\subsection{3.1 USE CASE MODEL}
+\subsection{3.1 USE CASE DIAGRAM}
 \vspace{10pt}
-
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth,height=15cm]{d1/UseCase Team R.jpeg}
+	\caption{Use Case Diagram} 
+	\label{CRC}
+\end{figure}
 \vspace{100pt}
-\subsection{3.2 Actors and their description}
-\vspace{10pt}
+\subsection{3.2 USE CASES}
+\subsubsection{Actors}
+\hspace{0.5cm}\textbf {Actuarial}\\
+
+The main user of the METRICSTICS system is Actuarial. The primary work of Actuarial is to assess financial risks in the insurance and finance fields, using mathematical and statistical methods.\\
+
+\textbf{System Administrator}\\
+
+The secondary user of the METRICSTICS system is System Administrator. The primary work of System Administrator is to deploy and maintain the METRICSTICS System.\\
+
 % \begin{table}
 %     \centering
 %     \begin{tabular}{|c|c|c|} \hline 
@@ -61,11 +74,9 @@
         Related use case & None \\ \hline
          
     \end{tabular}
-    \caption{}
+    \caption{Use Case Description for Find Help}
     \label{tab:my_label}
 \end{table}
-
-
 \begin{table}[htb]
     \centering
     \begin{tabular}{|p{4cm}|p{12cm}|} \hline 
@@ -82,26 +93,24 @@
          Name & Clear  All Data. \\ \hline 
          Pre-conditions & User is logged into the METRICSTICS system. \\ \hline 
          Post-conditions & Data in the system is cleared as requested by the actuarial. \\ \hline
-         Trigger & The acturial selects the option to clear all data from the METRICSTICS system. \\ \hline
+         Trigger & The actuarial selects the option to clear all data from the METRICSTICS system. \\ \hline
         \multirow{4}{*}{Normal flow} 
         & \textbf{1.}  The system presents the actuarial with an option to confirm data clearance. \\ 
         & \textbf{2.} The actuarial confirms the data clearance request. \\ 
         & \textbf{3.} The system deletes all data stored in METRICSTICS, including input datasets and calculation results. \\ 
-        & \textbf{4.} The system displays a confirmation message to the retailer, indicating that the data has been successfully cleared. \\ 
+        & \textbf{4.} The system displays a confirmation message to the actuarial, indicating that the data has been successfully cleared. \\ 
          
         
         \hline
-        \multirow{2}{*}{Normal flow} 
-        & \textbf{1.}  The system presents the retailer with an option to confirm data clearance. \\ 
+        \multirow{2}{*}{Exceptional flow} 
+        & \textbf{1.}  If the actuarial cancels the data clearance request, the system returns to the main menu without clearing any data. \\ 
         & \textbf{2.}  If there is a technical issue preventing data clearance, the system displays an error message and logs the issue for technical support. \\  \hline 
-        Related actors & Retailer \\ \hline
-        Related use case &  \\ \hline
+        Related actors & Actuarial \\ \hline
+        Related use case & None  \\ \hline
     \end{tabular}
-    \caption{}
+    \caption{Use Case Description for Clear All Data}
     \label{tab:my_label}
 \end{table}
-
-
 \begin{table}[htb]
     \centering
     \begin{tabular}{|p{4cm}|p{12cm}|} \hline 
@@ -122,10 +131,10 @@
          Trigger & The user selects the option to save calculated statistics within METRICSTICS. \\ \hline
         \multirow{5}{*}{Normal flow} 
         & \textbf{1.}   The system presents the user with a list of datasets for which descriptive statistics have been calculated. \\ 
-        & \textbf{2.}  The user selects a dataset for which they want to save the calculated statistics. \\ 
-          & \textbf{3.}   The system prompts the user to provide a name or description for the saved statistics. \\ 
-        & \textbf{4.}  The user enters a name or description and confirms the save action. \\ 
-          & \textbf{5.}  The system stores the calculated statistics with the provided name/description for future retrieval. \\ 
+        & \textbf{2.} The user selects a dataset for which they want to save the calculated statistics. \\ 
+          & \textbf{3.} The system prompts the user to provide a name or description for the saved statistics. \\ 
+        & \textbf{4.} The user enters a name or description and confirms the save action. \\ 
+        & \textbf{5.} The system stores the calculated statistics with the provided name/description for future retrieval. \\ 
        
          
         
@@ -133,13 +142,12 @@
          \multirow{2}{*}{Exceptional flow} 
         & \textbf{1.}If the user attempts to save statistics for a dataset that has not had descriptive statistics calculated, the system informs the user and prompts them to perform calculations first. \\ 
         & \textbf{2.}If there is an issue with saving due to storage limitations or file system errors, the system notifies the user and suggests freeing up storage space or checking file permissions. \\  \hline 
-        Related actors & Data Analyst \\ \hline
-        Related use case &  \\ \hline
+        Related actors & Actuarial \\ \hline
+        Related use case & None \\ \hline
     \end{tabular}
-    \caption{}
+    \caption{Use Case Description for Save Calculated Statistics}
     \label{tab:my_label}
 \end{table}
-
 \begin{table}[htb]
     \centering
     \begin{tabular}{|p{4cm}|p{12cm}|} \hline 
@@ -152,10 +160,10 @@
            \hline 
            Version & 1.0\\ \hline
          
-         Priority &  High\\ \hline 
+         Priority &  Medium\\ \hline 
          
          Name & Restore Saved Data. \\ \hline 
-         Pre-conditions & The system is running and accessible
+         Pre-conditions & The system is running and accessible.
 There are saved data for previous data input and/or calculation results.\\ \hline 
          Post-conditions & The previously saved data and/or result are restored and displayed. \\ \hline
          Trigger & The user clicks the “Restore” button. \\ \hline
@@ -170,10 +178,9 @@ There are saved data for previous data input and/or calculation results.\\ \hlin
         Related actors & Actuarial  \\ \hline
         Related use case & Input Data \\ \hline
     \end{tabular}
-    \caption{}
+    \caption{Use Case Description for Restore Saved Data}
     \label{tab:my_label}
 \end{table}
-
 \begin{table}[htb]
     \centering
     \begin{tabular}{|p{4cm}|p{12cm}|} \hline 
@@ -186,36 +193,30 @@ There are saved data for previous data input and/or calculation results.\\ \hlin
            \hline 
            Version & 1.0\\ \hline
          
-         Priority &  High\\ \hline 
+         Priority &  Medium\\ \hline 
          
-         Name &  Update Deployment. \\ \hline 
-         Pre-conditions & User is logged into the DeploymentManager system.
-A deployed application instance exists. \\ \hline 
-         Post-conditions & The deployment of the selected application is updated with new configurations or code changes. \\ \hline
-         Trigger & The user selects the option to update a deployment from the DeploymentManager interface.
+         Name &  Clear Input Entries. \\ \hline 
+         Pre-conditions & The system is running and accessible.
+There is data entered in the interface. \\ \hline 
+         Post-conditions & The data input entries are cleared. \\ \hline
+         Trigger & The user clicks the “Clear Input Entries” button.
  \\ \hline
-        \multirow{7}{*}{Normal flow} 
-        & \textbf{1.}   The system presents the user with a list of deployed applications and their associated environments. \\ 
-        & \textbf{2.}  The user selects the deployed application instance they want to update.\\
- & \textbf{3.}The system provides options for updating configurations or uploading new code. \\ 
-        & \textbf{4.} The user makes the necessary updates, such as modifying configuration parameters or uploading new application files.\\
- & \textbf{5.}  The system initiates the update process, applying the changes to the deployed application. \\ 
-        & \textbf{6.}  The system monitors the update progress and updates the user on the status.\\
- & \textbf{7.}Once the update is successfully applied, the system notifies the user. \\ 
+        \multirow{2}{*}{Normal flow} 
+        & \textbf{1.}  The user clicks the “Clear Input Entries” button.\\ 
+        & \textbf{2.} The data input entires are cleared.\\
          
          
         
         \hline
          \multirow{2}{*}{Exceptional flow} 
-        & \textbf{1.}   If there are issues or conflicts during the update, the system provides error messages and logs for troubleshooting. \\ 
-        & \textbf{2.} If the selected deployment does not exist or is in a state where updates cannot be applied, the system notifies the user and prevents further action.\\ \hline 
-        Related actors & System Administrator \\ \hline
-        Related use case &  \\ \hline
+        & \textbf{1.}   There is no input data or calculation results. \\ 
+        & \textbf{2.} The system does nothing. \\ \hline
+         Related actors & Actuarial \\ \hline
+        Related use case &  Input Data\\ \hline
     \end{tabular}
-    \caption{}
+    \caption{Use Case Description for Clear Input Entries}
     \label{tab:my_label}
 \end{table}
-
 \begin{table}[htb]
     \centering
     \begin{tabular}{|p{4cm}|p{12cm}|} \hline 
@@ -228,13 +229,13 @@ A deployed application instance exists. \\ \hline
            \hline 
            Version & 1.0\\ \hline
          
-         Priority &  Medium\\ \hline 
+         Priority &  high\\ \hline 
          
          Name & Deploy Application \\ \hline 
-         Pre-conditions & User is logged into the DeploymentManager system.
+         Pre-conditions & User is logged into the Deployment Manager system.
 The application package is ready for deployment. \\ \hline 
          Post-conditions & The application is successfully deployed on the target environment. \\ \hline
-         Trigger & The user selects the option to deploy an application from the DeploymentManager interface. \\ \hline
+         Trigger & The user selects the option to deploy an application from the Deployment Manager interface. \\ \hline
         \multirow{5}{*}{Normal flow} 
         & \textbf{1.} The system presents the user with a list of available applications and target environments. \\ 
         & \textbf{2.}The user selects the application to be deployed and the target environment.\\
@@ -245,12 +246,12 @@ The application package is ready for deployment. \\ \hline
         
         \hline
          \multirow{2}{*}{Exceptional flow} 
-        & \textbf{1.}If there are conflicts or issues during deployment, the system provides error messages and logs for troubleshooting. \\ 
-        & \textbf{2.}If the selected application or target environment is unavailable, the system notifies the user and prevents deployment.\\ \hline 
-        Related actors & System Administrator \\ \hline
-        Related use case &  \\ \hline
+        & \textbf{1.} If there are conflicts or issues during deployment, the system provides error messages and logs for troubleshooting. \\ 
+        & \textbf{2.} If the selected application or target environment is unavailable, the system notifies the user and prevents deployment.\\ \hline 
+        Related actors & Actuarial \\ \hline
+        Related use case &  None \\ \hline
     \end{tabular}
-    \caption{}
+    \caption{Use Case Description for Deploy Application}
     \label{tab:my_label}
 \end{table}
 \begin{table}[htb]
@@ -268,7 +269,7 @@ The application package is ready for deployment. \\ \hline
          Priority &  Medium\\ \hline 
          
          Name & Export Statistics Report. \\ \hline 
-         Pre-conditions & TMathematical Statistician is logged into the METRICSTICS system, and descriptive statistics have been calculated. \\ \hline 
+         Pre-conditions & Mathematical Statistician is logged into the METRICSTICS system, and descriptive statistics have been calculated. \\ \hline 
          Post-conditions & A report containing descriptive statistics is exported in the user's preferred format (e.g., PDF, CSV).  \\ \hline
          Trigger & The Mathematical Statistician selects the option to export a descriptive statistics report from METRICSTICS. \\ \hline
         \multirow{6}{*}{Normal flow} 
@@ -282,12 +283,14 @@ The application package is ready for deployment. \\ \hline
         
         \hline
         \multirow{2}{*}{Exceptional flow} 
-        & \textbf{1.} The system presents the Mathematical Statistician with a list of datasets for which descriptive statistics have been calculated. \\ 
-        & \textbf{2.} The Mathematical Statistician selects a dataset for which they want to export a report.   \\  \hline 
-        Related actors & User \\ \hline
+        & \textbf{1.} If there is an issue generating or exporting the report, the system displays an error message and logs the issue for technical support. \\ 
+        & \textbf{2.} If the selected dataset has not had descriptive statistics calculated, the system informs the Mathematical Statistician and prompts them to perform calculations first.   \\  \hline 
+        Related actors & Actuarial \\ \hline
         Related use case & Input Data, Minimum, Maximum, Mean, Mode, Median, Standard deviation, MAD  \\ \hline
     \end{tabular}
-   \end{table}
+    \caption{Use Case Description for Export Statistics Report}
+    \label{tab:my_label}
+   \end{table}   
 \begin{table}[htb]
     \centering
     \begin{tabular}{|p{4cm}|p{12cm}|} \hline 
@@ -319,7 +322,9 @@ The application package is ready for deployment. \\ \hline
         Related actors & Actuarial \\ \hline
         Related use case & Restore saved data  \\ \hline
     \end{tabular}
-    \end{table}
+    \caption{Use Case Description for Input Data}
+    \label{tab:my_label}
+    \end{table}   
 \begin{table}[htb]
     \centering
      \begin{tabular}{|p{4cm}|p{12cm}|} \hline 
@@ -338,27 +343,28 @@ The application package is ready for deployment. \\ \hline
          Pre-conditions & The system is running and accessible.
 Data related to catastrophic events has been successfully entered and saved by the system (as per "Input Data" use case). \\ \hline 
          Post-conditions & The minimum and maximum financial impact of catastrophic events have been calculated and displayed.  \\ \hline
-         Trigger & User selects the "Calculate Minimum" option.User selects the "Calculate Maximum" option. \\ \hline
-        \multirow{9}{*}{Normal flow} 
-        & \textbf{1.} The user clicks the data input text field. \\ 
-        & \textbf{2.} The user enters the data.   \\ 
- & \textbf{3.}  The data is automatically saved to the browser local storage. \\ 
- & \textbf{1.} The user clicks the data input text field. \\ 
-        & \textbf{2.} The user enters the data.   \\ 
- & \textbf{3.}  The data is automatically saved to the browser local storage. \\ 
- & \textbf{1.} The user clicks the data input text field. \\ 
-        & \textbf{2.} The user enters the data.   \\ 
- & \textbf{3.}  The data is automatically saved to the browser local storage. \\ 
+         Trigger & User selects the "Calculate Minimum" option. User selects the "Calculate Maximum" option. \\ \hline
+        \multirow{8}{*}{Normal flow} 
+        & \textbf{1.} User selects "Calculate Minimum" from the available options. \\ 
+        & \textbf{2.} The system retrieves the input data related to catastrophic events from the session.   \\ 
+ & \textbf{3.} The system calculates the minimum financial impact of the catastrophic events on insurance portfolios. \\ 
+ & \textbf{4.} The calculated minimum financial impact values are displayed to the user, along with relevant analysis. \\ 
+        & \textbf{5.} User selects "Calculate Maximum" from the available options.  \\ 
+ & \textbf{6.}  The system retrieves the input data related to catastrophic events from the session. \\ 
+ & \textbf{7.} The system calculates the maximum financial impact of the catastrophic events on insurance portfolios. \\ 
+        & \textbf{8.} The calculated maximum financial impact values are displayed to the user, along with relevant analysis.   \\ 
+
          
         
         \hline
-        \multirow{2}{*}{Exceptional flow} 
-        & \textbf{1.} The system detects the user entered invalid symbols. \\ 
-        & \textbf{2.} The system displays an error message to prompt the user to enter the correct data.   \\  \hline 
+       \multirow{3}{*}{Exceptional flow} 
+        & \textbf{1.}Actuarial cancels the operation. \\ 
+        & \textbf{2.} The input data contains an invalid input type.   \\ 
+         & \textbf{3.}System crash during calculation. \\ \hline  
         Related actors & Actuarial \\ \hline
         Related use case & Input Data, Minimum, Maximum  \\ \hline
     \end{tabular}
-    \caption{}
+    \caption{Use Case Description for Assessment of an Event Impact}
     \label{tab:my_label}
 \end{table}
 \begin{table}[htb]
@@ -383,7 +389,7 @@ Data has been successfully entered and saved by the system (as per "Input Data" 
          Trigger & User selects "Calculate MAD" option. \\ \hline
         \multirow{4}{*}{Normal flow} 
         & \textbf{1.} User selects "Calculate MAD" from the available options. \\ 
-        & \textbf{2.}The system retrieves the input data from the session.   \\ 
+        & \textbf{2.} The system retrieves the input data from the session.   \\ 
  & \textbf{3.}  The system calculates the Mean Absolute Deviation (MAD) for the claims severity data. \\ 
  & \textbf{4.} The calculated MAD value is displayed to the user. \\ 
         
@@ -391,13 +397,13 @@ Data has been successfully entered and saved by the system (as per "Input Data" 
         
         \hline
         \multirow{3}{*}{Exceptional flow} 
-        & \textbf{1.}Actuarial cancels the operation. \\ 
+        & \textbf{1.} Actuarial cancels the operation. \\ 
         & \textbf{2.} The input data contains an invalid input type.   \\ 
-         & \textbf{3.}System crash during calculation. \\ \hline 
+         & \textbf{3.} System crash during calculation. \\ \hline 
         Related actors & Actuarial \\ \hline
         Related use case & Input Data, MAD  \\ \hline
     \end{tabular}
-    \caption{}
+    \caption{Use Case Description for Calculate Funds for Severity Claims}
     \label{tab:my_label}
 \end{table}
 \begin{table}[htb]
@@ -423,8 +429,8 @@ Data related to individuals' retirement ages has been successfully entered and s
         \multirow{4}{*}{Normal flow} 
         & \textbf{1.} User selects "Calculate Median" from the available options. \\ 
         & \textbf{2.} The system retrieves the input data related to individuals' retirement ages from the session.   \\ 
- & \textbf{3.} The system calculates the median retirement age for the group of individuals. 
-  & \textbf{4.}The calculated median retirement age is displayed to the user, along with any additional relevant information. \\ 
+ & \textbf{3.} The system calculates the median retirement age for the group of individuals.\\ 
+  & \textbf{4.} The calculated median retirement age is displayed to the user, along with any additional relevant information. \\ 
         
 
          
@@ -432,11 +438,94 @@ Data related to individuals' retirement ages has been successfully entered and s
         \hline
         \multirow{3}{*}{Exceptional flow} 
         & \textbf{1.} Actuarial cancels the operation. \\ 
-        & \textbf{2.}The input data contains an invalid input type. 
-         & \textbf{3.}System crash during calculation. \\  \hline 
+        & \textbf{2.} The input data contains an invalid input type. \\
+         & \textbf{3.} System crash during calculation. \\  \hline 
         Related actors & Actuarial \\ \hline
         Related use case & Input Data, Median  \\ \hline
     \end{tabular}
-    \caption{}
+    \caption{Use Case Description for Calculate Retirement Age}
     \label{tab:my_label}
 \end{table}
+\begin{table}[htb]
+    \centering
+     \begin{tabular}{|p{4cm}|p{12cm}|} \hline 
+         System &  METRICSTICS\\ \hline 
+         
+         Identifier & UC-012 \\ \hline 
+         
+         \multirow{2}{*}{Author} & Neha Velagapudi   \\
+         &nehavelagapudi07@gmail.com \\
+           \hline 
+           Version & 1.0\\ \hline
+         
+         Priority &  High\\ \hline 
+         
+         Name & Calculate Customer Churn Rate. \\ \hline 
+         Pre-conditions &The system is running and accessible.
+Data related to customer churn reasons has been successfully entered and saved by the system (as per "Input Data" use case).
+ \\ \hline 
+         Post-conditions & The most common reasons for customer churn have been determined and displayed.  \\ \hline
+         Trigger & User selects "Calculate Mean" option.User selects "Calculate Mode" option. \\ \hline
+        \multirow{7}{*}{Normal flow} 
+        & \textbf{1.} User selects "Calculate Mean" from the available options. \\ 
+        & \textbf{2.} The system retrieves the input data related to customer churn reasons from the session.   \\ 
+ & \textbf{3.} The system calculates the mean (most common reasons) for customer churn.\\ 
+  & \textbf{4.} User selects "Calculate Mode" from the available options. \\ 
+   & \textbf{5.} The system retrieves the input data related to customer churn reasons from the session. \\ 
+        & \textbf{6.} The system calculates the mode (most common reasons) for customer churn.   \\ 
+ & \textbf{7.} The calculated mode and mean (most common reasons) are displayed to the user, along with insights for improving customer retention strategies.\\ 
+
+         
+        
+        \hline
+        \multirow{3}{*}{Exceptional flow} 
+        & \textbf{1.} Actuarial cancels the operation. \\ 
+        & \textbf{2.} The input data contains an invalid input type. \\
+         & \textbf{3.} System crash during calculation. \\  \hline 
+        Related actors & Actuarial \\ \hline
+        Related use case & Input Data, Mean,Mode  \\ \hline
+    \end{tabular}
+    \caption{Use Case Description for Calculate Churn Rate}
+    \label{tab:my_label}
+\end{table}
+\begin{table}[htb]
+    \centering
+     \begin{tabular}{|p{4cm}|p{12cm}|} \hline 
+         System &  METRICSTICS\\ \hline 
+         
+         Identifier & UC-013 \\ \hline 
+         
+         \multirow{2}{*}{Author} & Shashank Verma   \\
+         &shashank6341@gmail.com \\
+           \hline 
+           Version & 1.0\\ \hline
+         
+         Priority &  High\\ \hline 
+         
+         Name &  Calculate Investment Portfolio Risk. \\ \hline 
+         Pre-conditions & The system is running and accessible.
+Data related to investment portfolio returns has been successfully entered and saved by the system (as per "Input Data" use case).
+ \\ \hline 
+         Post-conditions & The risk associated with the investment portfolio has been assessed and displayed using standard deviation.  \\ \hline
+         Trigger & User selects "Calculate Standard Deviation" option. \\ \hline
+        \multirow{4}{*}{Normal flow} 
+        & \textbf{1.} User selects "Calculate Standard Deviation" from the available options. \\ 
+        & \textbf{2.} The system retrieves the input data related to investment portfolio returns from the session.   \\ 
+ & \textbf{3.} The system calculates the standard deviation of investment portfolio returns to quantify the level of risk.\\ 
+  & \textbf{4.} The calculated standard deviation value is displayed to the user, providing insights into the risk profile of the investment portfolio.\\ 
+        
+
+         
+        
+        \hline
+        \multirow{3}{*}{Exceptional flow} 
+        & \textbf{1.} Actuarial cancels the operation. \\ 
+        & \textbf{2.} The input data contains an invalid input type. \\
+         & \textbf{3.} System crash during calculation. \\  \hline 
+        Related actors & Actuarial \\ \hline
+        Related use case & Input Data, Standard Deviation  \\ \hline
+    \end{tabular}
+    \caption{Use Case Description for Calculate Investment Portfolio Risk}
+    \label{tab:my_label}
+\end{table}
+
