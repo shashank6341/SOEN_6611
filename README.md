@@ -15,12 +15,12 @@ Throughout the completion of Deliverable 1, every team member was entrusted with
 
 | Student Name  | Task Allocated |
 | -------- | -------- |
-| Shashank Verma   | Formulation of SMART Goal and GQM Questions. Defined Use Case and Use Case Scenario, LaTeX Documentation, Conducted Team Meetings|
-| revanth Velagandula   | Formulation of SMART Goal and GQM Questions, Description of use cases and use case scenarios.   |
-| Velagapudi Sri Neha   |Formulation of SMART Goal and GQM Questions, Defined Use Case, Supported team for every task, facilitate team meetings, Latex Dcoumentation, Project management   |
-|Manaswini Yarlagadda | Formulation of SMART Goal and GQM Questions, Description of use cases, Conducted Team Meetings, Latex Documentation|
-| Wenxue Zhao| The use case diagram, four use case definitions, 6 alternate questions and metrics, facilitate the meeting|
-|  Manasa Yalakala| Formulation of goal and GQM questions, Documenting and developing Use cases and Use case scenarios, Scheduled meetings, Project Management|
+| Shashank Verma   | 1. Formulation of SMART Goal and GQM Questions,<br>2. Defined Actors, Use Cases and Use Case Scenarios, <br>3. LaTeX Documentation, <br>4. Conducted Team Meetings|
+| revanth Velagandula   |1. Formulation of GQM Questions,<br>2. Generated Use Cases,<br>3. Ensured the metrics defined align with the GOALS,<br>4. System Research|
+| Velagapudi Sri Neha   |1. Ensured the goals follow SMART Principles,<br>2. Generated Use Case Scenarios,<br>3. Facilitated team meetings<br>4. Latex Documentation|
+|Manaswini Yarlagadda |1. Ensured the goals follow SMART Principles,<br>2. Generated Use Cases,<br>3. Formulation of GQM Questions,<br>4. Latex Documentation|
+| Wenxue Zhao| 1. Designed Use Case diagram,<br>2. Generated Four use case definitions,<br>3. 6 alternate questions and metrics,<br>4. Facilitated the meeting|
+|  Manasa Yalakala|1. Formulation of GQM Questions,<br>2. Generated Use Cases,3. Identify Metrics for the defined Goals,<br>4. Project Management|
 
 
 
