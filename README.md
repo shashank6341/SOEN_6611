@@ -1,7 +1,11 @@
 # SOEN 6611
 SOEN 6611 Deliverable
 
-# Deliverable
+# Deliverable 2
+
+Trello Board for Work Allocation and Progress: https://trello.com/b/TZeWS70Z/soen-6611-deliverable
+
+# Deliverable 1
 
 PROBLEM 1: Using the **Goal-Question-Metric (GQM)** approach (or one of its extensions), present one goal specific to METRICSTICS and articulate 2N questions related to that goal, where N is the team size. Discuss whether any metrics help answer those questions. 
 
