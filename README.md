@@ -2,6 +2,11 @@
 
 Currently team is working on Deliverable 2.
 
+### Issues
+
+[![Open Issues](https://img.shields.io/github/issues-raw/shashank6341/soen-6611?label=open&color=success)](https://github.com/shashank6341/soen-6611/issues)
+[![Closed Issues](https://img.shields.io/github/issues-closed-raw/shashank6341/soen-6611?label=closed&color=critical)](https://github.com/shashank6341/soen-6611/issues?q=is%3Aissue+is%3Aclosed)
+
   ## Project Guidelines
   
   <details>
