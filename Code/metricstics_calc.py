@@ -35,17 +35,21 @@ class App(tk.Tk):
         self.title("METRICSTICS System")
         self.geometry("600x600")
 
+        for i in range(3):  # Since you have 3 columns
+            self.columnconfigure(i, weight=1)
+
+
         self.entry = CustomEntry(self, placeholder="Ex: 1,45,57")
-        self.entry.grid(row=0, column=0, columnspan=2, padx=10, pady=5, sticky='ew')
+        self.entry.grid(row=0, column=0, columnspan=3, padx=10, pady=5, sticky='ew')
         
         self.bind("<Button-1>", self.on_window_click)
 
         # Result Label.
         self.result_label = tk.Label(self, text="Result: ")
-        self.result_label.grid(row=1, column=0, columnspan=2, padx=10, pady=5)
+        self.result_label.grid(row=1, column=0, columnspan=3, padx=10, pady=5, sticky='w')
 
 
-        # Calculation Buttons.
+        # Calculation Buttons
 
         # Using "ew" parameter to expand the UI Elements, East - West.
 
@@ -65,10 +69,10 @@ class App(tk.Tk):
         self.mean_btn.grid(row=3, column=1, padx=5, pady=5, sticky='ew')
 
         self.mad_button = tk.Button(self, text="Mean Absolute Deviation", command=self.calculate_mad)
-        self.mad_button.grid(row=4, column=0, sticky='ew', padx=5, pady=5)
+        self.mad_button.grid(row=4, column=0, padx=5, pady=5, sticky='ew')
 
         self.sd_button = tk.Button(self, text="Standard Deviation", command=self.calculate_sd)
-        self.sd_button.grid(row=4, column=1, sticky='ew', padx=5, pady=5)
+        self.sd_button.grid(row=4, column=1, padx=5, pady=5, sticky='ew')
 
 
 
