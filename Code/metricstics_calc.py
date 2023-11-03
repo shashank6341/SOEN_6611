@@ -1,6 +1,7 @@
 import threading
 import tkinter as tk
 from tkinter import messagebox
+import csv
 
 
 class CustomEntry(tk.Entry):
@@ -33,6 +34,16 @@ class CustomEntry(tk.Entry):
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
+
+        self.calculation_results = {
+            'Minimum': '',
+            'Maximum': '',
+            'Mode': '',
+            'Median': '',
+            'Arithmetic Mean': '',
+            'Mean Absolute Deviation': '',
+            'Standard Deviation': ''
+        }
 
         self.title("METRICSTICS System")
         self.geometry("600x600")
@@ -74,6 +85,9 @@ class App(tk.Tk):
         self.sd_button = tk.Button(self, text="Standard Deviation", command=lambda: self.calculate(self.calculate_sd))
         self.sd_button.grid(row=4, column=1, padx=5, pady=5, sticky='ew')
 
+        self.csv_button = tk.Button(self, text="Store to CSV", command=self.export_to_csv_threaded)
+        self.csv_button.grid(row=5, column=0, columnspan=3, padx=5, pady=5, sticky='ew')
+
     def on_window_click(self, event):
         widget = self.winfo_containing(event.x_root, event.y_root)
         if widget != self.entry:
@@ -99,10 +113,14 @@ class App(tk.Tk):
             tk.messagebox.showerror("Error", "Please enter valid comma-separated numbers!")
 
     def find_minimum(self, numbers):
-        return f"{min(numbers)} (Minimum)"
+        result = min(numbers)
+        self.calculation_results['Minimum'] = result
+        return f"{result} (Minimum)"
 
     def find_maximum(self, numbers):
-        return f"{max(numbers)} (Maximum)"
+        result = {max(numbers)}
+        self.calculation_results['Maximum'] = result
+        return f"{result} (Maximum)"
 
     def find_mode(self, numbers):
         from collections import Counter
@@ -113,19 +131,25 @@ class App(tk.Tk):
         if len(mode) == len(numbers):
             return "No mode found"
         else:
-            return f"{', '.join(map(str, mode))} (Mode)"
+            # result = f"{', '.join(map(str, mode))} (Mode)"
+            result = {', '.join(map(str, mode))}
+            self.calculation_results['Mode'] = result
+            return f"{result} (Mode)"
 
     def find_median(self, numbers):
         numbers.sort()
         mid = len(numbers) // 2
         if len(numbers) % 2 == 0:
             median = (numbers[mid - 1] + numbers[mid]) / 2
+            self.calculation_results['Median'] = median
         else:
             median = numbers[mid]
+            self.calculation_results['Median'] = median
         return f"{median} (Median)"
 
     def find_mean(self, numbers):
         mean = sum(numbers) / len(numbers)
+        self.calculation_results['Arithmetic Mean'] = mean
         return f"{mean} (Arithmetic Mean)"
 
     def mean_absolute_deviation(self, numbers):
@@ -139,11 +163,23 @@ class App(tk.Tk):
 
     def calculate_mad(self, numbers):
         result = self.mean_absolute_deviation(numbers)
+        self.calculation_results['Mean Absolute Deviation'] = result
         return f"{result:.2f} (Mean Absolute Deviation)"
 
     def calculate_sd(self, numbers):
         result = self.standard_deviation(numbers)
+        self.calculation_results['Standard Deviation'] = result
         return f"{result:.2f} (Standard Deviation)"
+    
+    def export_to_csv(self):
+        with open('results.csv', 'w', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(self.calculation_results.keys())  # Writing the headers
+            writer.writerow(self.calculation_results.values())  # Writing the values
+
+    
+    def export_to_csv_threaded(self):
+        threading.Thread(target=self.export_to_csv).start()
 
 
 if __name__ == "__main__":
