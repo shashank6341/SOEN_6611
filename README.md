@@ -74,6 +74,20 @@ Currently team is working on Deliverable 2.
   - Book a Poster Print Slot.
   </details>
 
+  ### Meeting - 2
+
+  <details>
+  <summary>Expand</summary>
+  <br/>
+
+  - Finalise on modifications in Actors and Use-Cases as part of D1 feedback.
+  - Finalise on the next task.
+  - Continue progress on METRICSTICS Code and report.
+  <br/>
+  Attendees: Shashank, Manaswini
+
+  </details>
+
 
 # Deliverable 1
 
