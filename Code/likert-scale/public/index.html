@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 900px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .question label {
+            display: block;
+            font-weight: bold;
+        }
+        .answer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .answer label {
+            color: black;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Survey</h1> 
+        <form id="surveyForm" action="/submit-survey" method="POST" >
+            
+            <div class="question">
+                <label for="q1">Question 1: Do you find METRICSTICS more efficient and user-friendly?</label>
+                <div class="answer">
+                    <input type="radio" id="q1a1" name="q1" value="5">
+                    <label for="q1a1">Strongly Agree</label>
+                    <input type="radio" id="q1a2" name="q1" value="4">
+                    <label for="q1a2">Agree</label>
+                    <input type="radio" id="q1a3" name="q1" value="3">
+                    <label for="q1a3">Neutral</label>
+                    <input type="radio" id="q1a4" name="q1" value="2">
+                    <label for="q1a4">Disagree</label>
+                    <input type="radio" id="q1a5" name="q1" value="1">
+                    <label for="q1a5">Strongly Disagree</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <label for="q2">Question 2: Has METRICSTICS met your expectations regarding usability and efficiency?</label>
+                <div class="answer">
+                    <input type="radio" id="q2a1" name="q2" value="5">
+                    <label for="q2a1">Strongly Agree</label>
+                    <input type="radio" id="q2a2" name="q2" value="4">
+                    <label for="q2a2">Agree</label>
+                    <input type="radio" id="q2a3" name="q2" value="3">
+                    <label for="q2a3">Neutral</label>
+                    <input type="radio" id="q2a4" name="q2" value="2">
+                    <label for="q2a4">Disagree</label>
+                    <input type="radio" id="q2a5" name="q2" value="1">
+                    <label for="q2a5">Strongly Disagree</label>
+                </div>
+            </div>
+
+            <div class = "question">
+                <label for="q3">Question 3: Are you likely to use METRICSTICS for your statistical analysis needs?</label>
+                <div class="answer">
+                    <input type="radio" id="q3a1" name="q3" value="5">
+                    <label for="q3a1">Strongly Agree</label>
+                    <input type="radio" id="q3a2" name="q3" value="4">
+                    <label for="q3a2">Agree</label>
+                    <input type="radio" id="q3a3" name="q3" value="3">
+                    <label for="q3a3">Neutral</label>
+                    <input type="radio" id="q3a4" name="q3" value="2">
+                    <label for="q3a4">Disagree</label>
+                    <input type="radio" id="q3a5" name="q3" value="1">
+                    <label for="q3a5">Strongly Disagree</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <label for="q4">Question 4: Do you believe METRICSTICS has improved its overall performance?</label>
+                <div class="answer">
+                    <input type="radio" id="q4a1" name="q4" value="5">
+                    <label for="q4a1">Strongly Agree</label>
+                    <input type="radio" id="q4a2" name="q4" value="4">
+                    <label for="q4a2">Agree</label>
+                    <input type="radio" id="q4a3" name="q4" value="3">
+                    <label for="q4a3">Neutral</label>
+                    <input type="radio" id="q4a4" name="q4" value="2">
+                    <label for="q4a4">Disagree</label>
+                    <input type="radio" id="q4a5" name="q4" value="1">
+                    <label for="q4a5">Strongly Disagree</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <label for="q5">Question 5: Has METRICSTICS enhanced your experience with descriptive statistics?</label>
+                <div class="answer">
+                    <input type="radio" id="q5a1" name="q5" value="5">
+                    <label for="q5a1">Strongly Agree</label>
+                    <input type="radio" id="q5a2" name="q5" value="4">
+                    <label for="q5a2">Agree</label>
+                    <input type="radio" id="q5a3" name="q5" value="3">
+                    <label for="q5a3">Neutral</label>
+                    <input type="radio" id="q5a4" name="q5" value="2">
+                    <label for="q5a4">Disagree</label>
+                    <input type="radio" id="q5a5" name="q5" value="1">
+                    <label for="q5a5">Strongly Disagree</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <label for="q6">Question 6: Do you think METRICSTICS is a valuable tool for your data analysis tasks?</label>
+                <div class="answer">
+                    <input type="radio" id="q6a1" name="q6" value="5">
+                    <label for="q6a1">Strongly Agree</label>
+                    <input type="radio" id="q6a2" name="q6" value="4">
+                    <label for="q6a2">Agree</label>
+                    <input type="radio" id="q6a3" name="q6" value="3">
+                    <label for="q6a3">Neutral</label>
+                    <input type="radio" id="q6a4" name="q6" value="2">
+                    <label for="q6a4">Disagree</label>
+                    <input type="radio" id="q6a5" name="q6" value="1">
+                    <label for="q6a5">Strongly Disagree</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <label for="q7">Question 7: Are you satisfied with the recent changes made to METRICSTICS?</label>
+                <div class="answer">
+                    <input type="radio" id="q7a1" name="q7" value="5">
+                    <label for="q7a1">Strongly Agree</label>
+                    <input type="radio" id="q7a2" name="q7" value="4">
+                    <label for="q7a2">Agree</label>
+                    <input type="radio" id="q7a3" name="q7" value="3">
+                    <label for="q7a3">Neutral</label>
+                    <input type="radio" id="q7a4" name="q7" value="2">
+                    <label for="q7a4">Disagree</label>
+                    <input type="radio" id="q7a5" name="q7" value="1">
+                    <label for="q7a5">Strongly Disagree</label>
+                </div>
+            </div>
+
+            <button type="submit" >Submit</button>
+        </form>
+    </div>
+    
+    <script>
+        // JavaScript for data collection and submission
+        document.addEventListener("DOMContentLoaded", function () {
+            const surveyForm = document.querySelector("form");
+            surveyForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+    
+                // Collect responses and submit the data
+                const formData = new FormData(surveyForm);
+                const surveyData = {};
+    
+                for (const [key, value] of formData.entries()) {
+                    surveyData[key] = value;
+                }
+    
+                // Send the data to the server
+                fetch('/submit-survey', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(surveyData),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        alert(data.message);
+                        surveyForm.reset();
+                    });
+            });
+        });
+    </script>
+</body>
+</html>
