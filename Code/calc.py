@@ -1,6 +1,7 @@
 import tkinter as tk
 from statistics import Statistics
 import csv
+import tkinter.filedialog as fd
 
 # Create a window
 window = tk.Tk()
@@ -12,11 +13,11 @@ frame.pack()
 
 # Create a label to display the instructions
 label = tk.Label(frame, text="Enter the data separated by commas:")
-label.grid(row=0, column=0, columnspan=3)
+label.grid(row=0, column=0, columnspan=4)
 
 # Create a text widget to get the data from the user
 text = tk.Text(frame, height=5, width=40)
-text.grid(row=1, column=0, columnspan=3)
+text.grid(row=1, column=0, columnspan=4)
 
 # Create a list of statistics options
 options = ["Min", "Max", "Mode", "Median", "Mean", "MAD", "Stdev", "Variance"]
@@ -103,6 +104,24 @@ def save():
         # Write the data and the results as a row
         writer.writerow([data] + results)
 
+# Define a function to load the data from a CSV file
+def load():
+    # Ask the user to select a file
+    filename = fd.askopenfilename(filetypes=[("CSV files", "*.csv")])
+    # Check if a file is selected
+    if filename:
+        # Open the file
+        with open(filename, "r") as file:
+            # Read the csv reader
+            reader = csv.reader(file)
+            # Get the first row
+            data = next(reader)
+            # Get the data from the first row
+            data = data[0]
+            # Insert the data into the text widget
+            text.delete("1.0", "end")
+            text.insert("1.0", data)
+
 # Create a button to trigger the calculation
 button_calculate = tk.Button(frame, text="Calculate", command=calculate)
 button_calculate.grid(row=10, column=0)
@@ -117,7 +136,11 @@ button_clear.grid(row=10, column=2)
 
 # Create a button to trigger the saving
 button_save = tk.Button(frame, text="Save", command=save)
-button_save.grid(row=11, column=0, columnspan=3)
+button_save.grid(row=11, column=0, columnspan=2)
+
+# Create a button to trigger the loading
+button_load = tk.Button(frame, text="Load CSV From File", command=load)
+button_load.grid(row=11, column=2)
 
 # Start the main loop
 window.mainloop()
