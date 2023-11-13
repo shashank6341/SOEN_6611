@@ -6,13 +6,13 @@ class Statistics:
     def read_data(self, data):
         self.data = sorted(data)
         
-    def get_min(self):
+    def min(self):
         return self.data[0]
     
-    def get_max(self):
+    def max(self):
         return self.data[-1]
 
-    def get_mode(self):
+    def mode(self):
         freq = {}
         for x in self.data:
             if x in freq:
@@ -31,7 +31,7 @@ class Statistics:
         
         return modes
     
-    def get_median(self):
+    def median(self):
         n = len(self.data)
         
         if n % 2 == 0:
@@ -41,24 +41,35 @@ class Statistics:
         else:
             return self.data[n//2]
 
-    def get_mean(self):
+    def mean(self):
         total = 0
         for x in self.data:
             total += x
         return total / len(self.data)
 
-    def get_mad(self):
-        mean = self.get_mean()
+    def mad(self):
+        mean = self.mean()
         total = 0
         for x in self.data:
             total += abs(x - mean)
         return total / len(self.data)
 
-    def get_stdev(self):
-        return self.sqrt(self.get_variance())
+    def stdev(self):
+        return self.sqrt(self.variance())
+    
+    def sqrt(self,x):
+        if x < 0:
+            return None
+        if x == 0:
+            return 0
+        guess = x / 2
+        while abs(guess * guess - x) > 1e-9:
+            guess = (guess + x / guess) / 2
+        return guess
 
-    def get_variance(self):
-        mean = self.get_mean()
+
+    def variance(self):
+        mean = self.mean()
         total = 0
         for x in self.data:
             total += (x - mean)**2
