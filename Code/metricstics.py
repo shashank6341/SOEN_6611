@@ -3,11 +3,7 @@ from statistics import Statistics
 import csv
 import tkinter.filedialog as fd
 
-def run_main_ui(on_logout_callback):
-
-    def on_logout(callback, window):
-        window.destroy()
-        callback()
+def run_main_ui():
 
     # Create a window
     window = tk.Tk()
@@ -153,10 +149,6 @@ def run_main_ui(on_logout_callback):
     # Create a button to trigger the loading
     button_load = tk.Button(frame, text="Load CSV From File", command=load)
     button_load.grid(row=11, column=2)
-
-    # Create a button to trigger the logout
-    logout_button = tk.Button(frame, text="Logout", command=lambda: on_logout(on_logout_callback, window))
-    logout_button.grid(row=12, column=0, columnspan=3)
 
     # Start the main loop
     window.mainloop()
