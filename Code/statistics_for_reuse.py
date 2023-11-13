@@ -1,5 +1,4 @@
-import numpy as np
-import scipy.stats as stats
+import statistics
 
 class Statistics:
 
@@ -7,30 +6,28 @@ class Statistics:
         self.data = []
 
     def read_data(self, data):
-        self.data = np.array(data)
-        self.data.sort()
+        self.data = sorted(data)
         
     def min(self):
-        return np.min(self.data)
+        return min(self.data)
 
     def max(self):
-        return np.max(self.data)
+        return max(self.data)
 
-# mode is broken
     def mode(self):
-        return stats.mode(self.data)
+        return statistics.multimode(self.data)
 
     def median(self):
-        return np.median(self.data)
+        return statistics.median(self.data)
 
     def mean(self):
-        return np.mean(self.data)
+        return statistics.mean(self.data)
 
     def mad(self):
-        return np.mean(np.abs(self.data - self.mean()))
+        return statistics.mean([abs(x - self.mean()) for x in self.data])
 
     def stdev(self):
-        return np.std(self.data, ddof=1)
+        return statistics.stdev(self.data)
 
     def variance(self):
-        return np.var(self.data, ddof=1)
+        return statistics.variance(self.data)
