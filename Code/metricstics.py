@@ -1,134 +1,146 @@
 import tkinter as tk
+from statistics import Statistics
 import csv
-import statistics
+import tkinter.filedialog as fd
 
-class Calculator:
-    def __init__(self, master):
-        self.master = master
-        master.title("METRICSTICS")
+# Create a window
+window = tk.Tk()
+window.title("Statistics Calculator")
 
-        self.result = 0
-        self.current_num = 0
-        self.operation = None
-        self.values = []
+# Create a frame to hold the widgets
+frame = tk.Frame(window)
+frame.pack()
 
-        # create display
-        self.display = tk.Entry(master, width=20, font=('Arial', 16))
-        self.display.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
+# Create a label to display the instructions
+label = tk.Label(frame, text="Enter the data separated by commas:")
+label.grid(row=0, column=0, columnspan=4)
 
-        # create buttons
-        self.create_button('7', 1, 0)
-        self.create_button('8', 1, 1)
-        self.create_button('9', 1, 2)
-        self.create_button('/', 1, 3)
-        self.create_button('4', 2, 0)
-        self.create_button('5', 2, 1)
-        self.create_button('6', 2, 2)
-        self.create_button('*', 2, 3)
-        self.create_button('1', 3, 0)
-        self.create_button('2', 3, 1)
-        self.create_button('3', 3, 2)
-        self.create_button('-', 3, 3)
-        self.create_button('0', 4, 0)
-        self.create_button('C', 4, 1)
-        self.create_button('=', 4, 2)
-        self.create_button('+', 4, 3)
+# Create a text widget to get the data from the user
+text = tk.Text(frame, height=5, width=40)
+text.grid(row=1, column=0, columnspan=4)
 
-        # create statistics buttons
-        self.create_button('Minimum', 5, 0)
-        self.create_button('Maximum', 5, 1)
-        self.create_button('Mode', 5, 2)
-        self.create_button('Median', 5, 3)
-        self.create_button('Mean', 6, 0)
-        self.create_button('MAD', 6, 1)
-        self.create_button('Std Dev', 6, 2)
+# Create a list of statistics options
+options = ["Min", "Max", "Mode", "Median", "Mean", "MAD", "Stdev", "Variance"]
 
-        # create file buttons
-        self.create_button('Save', 7, 0)
-        self.create_button('Load', 7, 1)
+# Create a list of variables to store the checkbox values
+vars = []
+for i in range(len(options)):
+    vars.append(tk.IntVar())
 
-    def create_button(self, text, row, col):
-        button = tk.Button(self.master, text=text, width=8, height=2, font=('Arial', 16), command=lambda: self.button_click(text))
-        button.grid(row=row, column=col, padx=5, pady=5)
+# Create a list of checkboxes to select the statistics
+checkboxes = []
+for i in range(len(options)):
+    checkboxes.append(tk.Checkbutton(frame, text=options[i], variable=vars[i]))
+    checkboxes[i].grid(row=2+i, column=0, sticky="w")
 
-    def button_click(self, text):
-        if text.isdigit():
-            self.current_num = self.current_num * 10 + int(text)
-            self.display.delete(0, tk.END)
-            self.display.insert(0, str(self.current_num))
-        elif text == 'C':
-            self.current_num = 0
-            self.result = 0
-            self.operation = None
-            self.display.delete(0, tk.END)
-        elif text in ['+', '-', '*', '/']:
-            self.calculate()
-            self.operation = text
-            self.current_num = 0
-        elif text == '=':
-            self.calculate()
-            self.operation = None
-            self.current_num = 0
-        elif text == 'Minimum' and self.values:
-            self.result = min(self.values)
-            self.display_result()
-        elif text == 'Maximum' and self.values:
-            self.result = max(self.values)
-            self.display_result()
-        elif text == 'Mode' and self.values:
-            self.result = statistics.mode(self.values)
-            self.display_result()
-        elif text == 'Median' and self.values:
-            self.result = statistics.median(self.values)
-            self.display_result()
-        elif text == 'Mean' and self.values:
-            self.result = statistics.mean(self.values)
-            self.display_result()
-        elif text == 'MAD' and self.values:
-            self.result = statistics.mean([abs(x - statistics.mean(self.values)) for x in self.values])
-            self.display_result()
-        elif text == 'Std Dev' and self.values:
-            self.result = statistics.stdev(self.values)
-            self.display_result()
-        elif text == 'Save':
-            self.save_to_csv()
-        elif text == 'Load':
-            self.load_from_csv()
+# Create a list of labels to display the results
+labels = []
+for i in range(len(options)):
+    labels.append(tk.Label(frame, text=""))
+    labels[i].grid(row=2+i, column=1, sticky="w")
 
-    def calculate(self):
-        if self.operation == '+':
-            self.result += self.current_num
-        elif self.operation == '-':
-            self.result -= self.current_num
-        elif self.operation == '*':
-            self.result *= self.current_num
-        elif self.operation == '/':
-            if self.current_num == 0:
-                raise ValueError("Cannot divide by zero")
-            self.result /= self.current_num
+# Define a function to calculate and display the statistics
+def calculate():
+    # Get the data from the text widget
+    data = text.get("1.0", "end-1c")
+    # Convert the data to a list of numbers
+    data = [float(x) for x in data.split(",")]
+    # Create a Statistics object
+    stats = Statistics()
+    # Read the data
+    stats.read_data(data)
+    # Loop through the options
+    for i in range(len(options)):
+        # Check if the option is selected
+        if vars[i].get() == 1:
+            # Get the corresponding method name
+            method = options[i].lower()
+            # Call the method and get the result
+            result = getattr(stats, method)()
+            # Display the result
+            labels[i].config(text=str(result))
         else:
-            self.result = self.current_num
+            # Clear the result
+            labels[i].config(text="")
 
-        self.display_result()
+# Define a function to restore the data from the history file
+def restore():
+    # Open the history file
+    with open("history.csv", "r") as file:
+        # Read the csv reader
+        reader = csv.reader(file)
+        # Get the last row
+        for row in reader:
+            pass
+        # Get the data from the last row
+        data = row[0]
+        # Insert the data into the text widget
+        text.delete("1.0", "end")
+        text.insert("1.0", data)
 
-    def display_result(self):
-        self.display.delete(0, tk.END)
-        self.display.insert(0, str(self.result))
-        self.values.append(self.result)
+# Define a function to clear the data and the results
+def clear():
+    # Delete the data from the text widget
+    text.delete("1.0", "end")
+    # Loop through the options
+    for i in range(len(options)):
+        # Uncheck the option
+        vars[i].set(0)
+        # Clear the result
+        labels[i].config(text="")
 
-    def save_to_csv(self):
-        with open('calculations.csv', mode='w', newline='') as file:
-            writer = csv.writer(file)
-            writer.writerow(self.values)
+# Define a function to save the data and the results to the history file
+def save():
+    # Get the data from the text widget
+    data = text.get("1.0", "end-1c")
+    # Get the results from the labels
+    results = []
+    for i in range(len(options)):
+        results.append(labels[i].cget("text"))
+    # Open the history file
+    with open("history.csv", "a") as file:
+        # Create a csv writer
+        writer = csv.writer(file)
+        # Write the data and the results as a row
+        writer.writerow([data] + results)
 
-    def load_from_csv(self):
-        with open('calculations.csv', mode='r') as file:
+# Define a function to load the data from a CSV file
+def load():
+    # Ask the user to select a file
+    filename = fd.askopenfilename(filetypes=[("CSV files", "*.csv")])
+    # Check if a file is selected
+    if filename:
+        # Open the file
+        with open(filename, "r") as file:
+            # Read the csv reader
             reader = csv.reader(file)
-            for row in reader:
-                self.values = [int(x) for x in row]
-                self.result = self.values[-1]
-                self.display_result()
+            # Get the first row
+            data = next(reader)
+            # Get the data from the first row
+            data = data[0]
+            # Insert the data into the text widget
+            text.delete("1.0", "end")
+            text.insert("1.0", data)
 
-root = tk.Tk()
-calculator = Calculator(root)
-root.mainloop()
+# Create a button to trigger the calculation
+button_calculate = tk.Button(frame, text="Calculate", command=calculate)
+button_calculate.grid(row=10, column=0)
+
+# Create a button to trigger the restoration
+button_restore = tk.Button(frame, text="Restore", command=restore)
+button_restore.grid(row=10, column=1)
+
+# Create a button to trigger the clearing
+button_clear = tk.Button(frame, text="Clear", command=clear)
+button_clear.grid(row=10, column=2)
+
+# Create a button to trigger the saving
+button_save = tk.Button(frame, text="Save", command=save)
+button_save.grid(row=11, column=0, columnspan=2)
+
+# Create a button to trigger the loading
+button_load = tk.Button(frame, text="Load CSV From File", command=load)
+button_load.grid(row=11, column=2)
+
+# Start the main loop
+window.mainloop()
