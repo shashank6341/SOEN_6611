@@ -112,15 +112,21 @@ def load():
     if filename:
         # Open the file
         with open(filename, "r") as file:
+            # Read the entire file content and replace non-breaking spaces with standard spaces
+            file_content = file.read().replace(u'\u00A0', ' ')
+            # Use StringIO to mimic a file object for csv.reader
+            from io import StringIO
+            file_like_object = StringIO(file_content)
+
             # Read the csv reader
-            reader = csv.reader(file)
+            reader = csv.reader(file_like_object)
             # Get the first row
             data = next(reader)
-            # Get the data from the first row
-            data = data[0]
+            # Join the data items from the first row separated by commas
+            data_str = ','.join(data)
             # Insert the data into the text widget
             text.delete("1.0", "end")
-            text.insert("1.0", data)
+            text.insert("1.0", data_str)
 
 # Create a button to trigger the calculation
 button_calculate = tk.Button(frame, text="Calculate", command=calculate)
