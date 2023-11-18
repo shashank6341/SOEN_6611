@@ -4,7 +4,8 @@ class Statistics:
         self.data = []
 
     def read_data(self, data):
-        self.data = sorted(data)
+        quicksort(data,0,len(data)-1)
+        self.data = data
         
     def min(self):
         return self.data[0]
@@ -63,7 +64,7 @@ class Statistics:
         if x == 0:
             return 0
         guess = x / 2
-        while abs(guess * guess - x) > 1e-9:
+        while abs(guess * guess - x) > 1e-12:
             guess = (guess + x / guess) / 2
         return guess
 
@@ -74,3 +75,23 @@ class Statistics:
         for x in self.data:
             total += (x - mean)**2
         return total / (len(self.data) - 1)
+    
+def partition(arr, start, end):
+    pivot = arr[end]
+    pivot_index = start - 1
+    for index in range(start, end):
+        if arr[index] <= pivot:
+            pivot_index = pivot_index + 1
+            tmp = arr[pivot_index]
+            arr[pivot_index] = arr[index]
+            arr[index] = tmp
+    tmp = arr[pivot_index + 1]
+    arr[pivot_index + 1] = arr[end]
+    arr[end] = tmp
+    return pivot_index + 1
+ 
+def quicksort(arr, start, end):
+    if start < end:
+        pivot_position = partition(arr, start, end)
+        quicksort(arr, start, pivot_position - 1)
+        quicksort(arr, pivot_position + 1, end)    
