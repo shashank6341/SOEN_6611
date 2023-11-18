@@ -64,7 +64,7 @@ class Statistics:
         if x == 0:
             return 0
         guess = x / 2
-        while abs(guess * guess - x) > 1e-9:
+        while abs(guess * guess - x) > 1e-12:
             guess = (guess + x / guess) / 2
         return guess
 
