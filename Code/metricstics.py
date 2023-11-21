@@ -98,7 +98,7 @@ def clear():
         vars[i].set(0)
         # Clear the result
         labels[i].config(text="")
-    checkOptions(False)
+    select()
 
 def checkOptions(advanced=False):
     # Loop through the basic options
