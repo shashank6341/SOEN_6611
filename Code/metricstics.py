@@ -71,22 +71,27 @@ def calculate():
         tk.messagebox.showerror("Error", "Invalid method. Please select a valid option.")
     except Exception as e:
         # Display a generic error message for any other exception
-        tk.messagebox.showerror("Error", "An error occurred: " + str(e))
+        tk.messagebox.showerror("Error", "An error occurred.")
 
 # Define a function to restore the data from the history file
 def restore():
-    # Open the history file
-    with open("history.csv", "r") as file:
-        # Read the csv reader
-        reader = csv.reader(file)
-        # Get the last row
-        for row in reader:
-            pass
-        # Get the data from the last row
-        data = row[0]
-        # Insert the data into the text widget
-        text.delete("1.0", "end")
-        text.insert("1.0", data)
+    try:
+        # Open the history file
+        with open("history.csv", "r") as file:
+            # Read the csv reader
+            reader = csv.reader(file)
+            # Get the last row
+            for row in reader:
+                pass
+            # Get the data from the last row
+            data = row[0]
+            # Insert the data into the text widget
+            text.delete("1.0", "end")
+            text.insert("1.0", data)
+    except FileNotFoundError:
+        tk.messagebox.showerror("Error", "No previous history found.")
+    except Exception as e:
+        tk.messagebox.showerror("Error", "An error occurred while restoring the last session")
 
 # Define a function to clear the data and the results
 def clear():
@@ -113,38 +118,48 @@ def checkOptions(advanced=False):
 
 # Define a function to save the data and the results to the history file
 def save():
-    # Get the data from the text widget
-    data = text.get("1.0", "end-1c")
-    # Open the history file
-    with open("history.csv", "a") as file:
-        # Create a csv writer
-        writer = csv.writer(file)
-        # Write the data and the results as a row
-        writer.writerow([data])
+    try:
+        # Get the data from the text widget
+        data = text.get("1.0", "end-1c")
+        # Open the history file
+        with open("history.csv", "a") as file:
+            # Create a csv writer
+            writer = csv.writer(file)
+            # Write the data and the results as a row
+            writer.writerow([data])
+    except Exception as e:
+        tk.messagebox.showerror("Error", "An error occurred storing the session.")
 
 # Define a function to load the data from a CSV file
 def load():
-    # Ask the user to select a file
-    filename = fd.askopenfilename(filetypes=[("CSV files", "*.csv")])
-    # Check if a file is selected
-    if filename:
-        # Open the file
-        with open(filename, "r") as file:
-            # Read the entire file content and replace non-breaking spaces with standard spaces
-            file_content = file.read().replace(u'\u00A0', ' ')
-            # Use StringIO to mimic a file object for csv.reader
-            from io import StringIO
-            file_like_object = StringIO(file_content)
+    try:
+        # Ask the user to select a file
+        filename = fd.askopenfilename(filetypes=[("CSV files", "*.csv")])
+        # Check if a file is selected
+        if filename:
+            # Open the file
+            with open(filename, "r") as file:
+                # Read the entire file content and replace non-breaking spaces with standard spaces
+                file_content = file.read().replace(u'\u00A0', ' ')
+                # Use StringIO to mimic a file object for csv.reader
+                from io import StringIO
+                file_like_object = StringIO(file_content)
 
-            # Read the csv reader
-            reader = csv.reader(file_like_object)
-            # Get the first row
-            data = next(reader)
-            # Join the data items from the first row separated by commas
-            data_str = ','.join(data)
-            # Insert the data into the text widget
-            text.delete("1.0", "end")
-            text.insert("1.0", data_str)
+                # Read the csv reader
+                reader = csv.reader(file_like_object)
+                # Get the first row
+                data = next(reader)
+                # Join the data items from the first row separated by commas
+                data_str = ','.join(data)
+                # Insert the data into the text widget
+                text.delete("1.0", "end")
+                text.insert("1.0", data_str)
+    except FileNotFoundError:
+        tk.messagebox.showerror("Error", "File not found.")
+    except csv.Error:
+        tk.messagebox.showerror("Error", "Error reading the input file.")
+    except Exception as e:
+        tk.messagebox.showerror("Error", "An error occurred while uploading data.")
 
 # Define a function to handle the radio button selection
 def select():
