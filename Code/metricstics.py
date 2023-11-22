@@ -169,7 +169,7 @@ def open_help():
         # Get the directory of the current script
         current_path = os.path.dirname(os.path.realpath(__file__))
         # Get the path of the help.html file
-        help_file_path = os.path.join(current_path, 'help.html')
+        help_file_path = os.path.join(current_path, 'index.html')
         # Open help.html file in a new window of the default web browser
         webbrowser.open('file://' + help_file_path, new=2)
     except Exception as e:
