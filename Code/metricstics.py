@@ -2,6 +2,8 @@ import tkinter as tk
 from statistics import Statistics
 import csv
 import tkinter.filedialog as fd
+import webbrowser
+import os
 
 # Create a window
 window = tk.Tk()
@@ -161,6 +163,18 @@ def load():
     except Exception as e:
         tk.messagebox.showerror("Error", "An error occurred while uploading data.")
 
+# Define a function to open the help file
+def open_help():
+    try:
+        # Get the directory of the current script
+        current_path = os.path.dirname(os.path.realpath(__file__))
+        # Get the path of the help.html file
+        help_file_path = os.path.join(current_path, 'index.html')
+        # Open help.html file in a new window of the default web browser
+        webbrowser.open('file://' + help_file_path, new=2)
+    except Exception as e:
+        tk.messagebox.showerror("Error", "An error occurred while opening the help file.")
+
 # Define a function to handle the radio button selection
 def select():
     # Get the radio button value
@@ -208,7 +222,11 @@ button_save.grid(row=11, column=1, columnspan=1)
 
 # Create a button to trigger the loading
 button_load = tk.Button(frame, text="Load CSV From File", command=load)
-button_load.grid(row=12, column=1, columnspan=2)
+button_load.grid(row=12, column=1, columnspan=1)
+
+# Create a button to trigger the help
+button_help = tk.Button(frame, text="Help", command=open_help)
+button_help.grid(row=12, column=2, columnspan=1)
 
 # Start the main loop#
 window.mainloop()
