@@ -24,30 +24,49 @@ class Statistics:
             return []
         freq = {}
         for x in self.data:
-            freq[x] = freq.get(x, 0) + 1
+            if x in freq:
+                freq[x] += 1
+            else:
+                freq[x] = 1
         
-        max_freq = max(freq.values(), default=0)
-        return [x for x, f in freq.items() if f == max_freq]
+        max_freq = 0
+        modes = []
+        for x, f in freq.items():
+            if f > max_freq:
+                max_freq = f
+                modes = [x]
+            elif f == max_freq:
+                modes.append(x)
+        
+        return modes
     
     def median(self):
         if not self.data:
             raise ValueError("Data is empty.")
         n = len(self.data)
         if n % 2 == 0:
-            return (self.data[n//2] + self.data[n//2 - 1]) / 2
+            median1 = self.data[n//2]
+            median2 = self.data[n//2 - 1]
+            return (median1 + median2) / 2
         else:
             return self.data[n//2]
 
     def mean(self):
         if not self.data:
             raise ValueError("Data is empty.")
-        return sum(self.data) / len(self.data)
+        total = 0
+        for x in self.data:
+            total += x
+        return total / len(self.data)
 
     def mad(self):
         if not self.data:
             raise ValueError("Data is empty.")
         mean = self.mean()
-        return sum(abs(x - mean) for x in self.data) / len(self.data)
+        total = 0
+        for x in self.data:
+            total += abs(x - mean)
+        return total / len(self.data)
 
     def stdev(self):
         if not self.data:
@@ -68,7 +87,10 @@ class Statistics:
         if len(self.data) < 2:
             raise ValueError("Two data points required to calculate variance.")
         mean = self.mean()
-        return sum((x - mean)**2 for x in self.data) / (len(self.data) - 1)
+        total = 0
+        for x in self.data:
+            total += (x - mean)**2
+        return total / (len(self.data) - 1)
 
 def partition(arr, start, end):
     pivot = arr[end]
@@ -76,8 +98,12 @@ def partition(arr, start, end):
     for index in range(start, end):
         if arr[index] <= pivot:
             pivot_index += 1
-            arr[pivot_index], arr[index] = arr[index], arr[pivot_index]
-    arr[pivot_index + 1], arr[end] = arr[end], arr[pivot_index + 1]
+            tmp = arr[pivot_index]
+            arr[pivot_index] = arr[index]
+            arr[index] = tmp
+    tmp = arr[pivot_index + 1]
+    arr[pivot_index + 1] = arr[end]
+    arr[end] = tmp
     return pivot_index + 1
 
 def quicksort(arr, start, end):
