@@ -52,11 +52,11 @@ for i in range(len(options)):
     checkboxes[i].bind("<Enter>", tooltip.hover)
     checkboxes[i].bind("<Leave>", tooltip.unhover)
 
-# Create a list of labels to display the results
-labels = []
+# Create a list of Entry fields to display the results
+entries = []
 for i in range(len(options)):
-    labels.append(tk.Label(frame, text=""))
-    labels[i].grid(row=2+i, column=1, sticky="w")
+    entries.append(tk.Entry(frame, state='readonly'))  # make it readonly
+    entries[i].grid(row=2+i, column=1, columnspan=2, sticky="ew")
 
 # Define a function to calculate and display the statistics
 def calculate():
@@ -78,10 +78,15 @@ def calculate():
                 # Call the method and get the result
                 result = getattr(stats, method)()
                 # Display the result
-                labels[i].config(text=str(result))
+                entries[i].config(state='normal')
+                entries[i].delete(0, 'end')
+                entries[i].insert(0, str(result))
+                entries[i].config(state='readonly')
             else:
                 # Clear the result
-                labels[i].config(text="")
+                entries[i].config(state='normal')
+                entries[i].delete(0, 'end')
+                entries[i].config(state='readonly')
     except ValueError:
         # Display an error message if the data is not valid
         tk.messagebox.showerror("Error", "Invalid data. Please enter comma-separated numbers.")
@@ -121,7 +126,9 @@ def clear():
         # Uncheck the option
         vars[i].set(0)
         # Clear the result
-        labels[i].config(text="")
+        entries[i].config(state='normal')
+        entries[i].delete(0, 'end')
+        entries[i].config(state='readonly')
     select()
 
 def checkOptions(advanced=False):
