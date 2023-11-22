@@ -188,6 +188,10 @@ def select():
         # Call the checkOptions function with True
         checkOptions(True)
 
+# Check if 'history.csv' exists in the current directory, if yes, restore the data
+if os.path.isfile('history.csv'):
+    restore()
+
 # Create a variable to store the radio button value
 radio_var = tk.IntVar()
 
