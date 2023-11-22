@@ -4,6 +4,7 @@ import csv
 import tkinter.filedialog as fd
 import webbrowser
 import os
+from tooltip import ToolTip  # Import ToolTip class
 
 # Create a window
 window = tk.Tk()
@@ -24,6 +25,18 @@ text.grid(row=1, column=0, columnspan=4)
 # Create a list of statistics options
 options = ["Min", "Max", "Mode", "Median", "Mean", "MAD", "Stdev", "Variance"]
 
+# Create a list of tooltip texts
+tooltips = [
+    "Minimum value: The smallest number in the dataset.",
+    "Maximum value: The largest number in the dataset.",
+    "Mode: The value that appears most frequently in the dataset.",
+    "Median: The middle value in the dataset when the data is sorted in ascending order. If the dataset has an even number of observations, the median is the average of the two middle numbers.",
+    "Mean: The average of all the values in the dataset. It's calculated by summing all the numbers in the dataset and then dividing by the number of values in the dataset.",
+    "Mean absolute deviation: The average of the absolute differences between each data point and the mean. It's a measure of dispersion in the dataset.",
+    "Standard deviation: A measure of the amount of variation or dispersion of a set of values. A low standard deviation means that the values tend to be close to the mean, while a high standard deviation means that the values are spread out over a wider range.",
+    "Variance: The average of the squared differences from the mean. It's another measure of dispersion in the dataset."
+]
+
 # Create a list of variables to store the checkbox values
 vars = []
 for i in range(len(options)):
@@ -34,6 +47,10 @@ checkboxes = []
 for i in range(len(options)):
     checkboxes.append(tk.Checkbutton(frame, text=options[i], variable=vars[i]))
     checkboxes[i].grid(row=2+i, column=0, sticky="w")
+    # Create tooltip for each checkbox
+    tooltip = ToolTip(checkboxes[i], tooltips[i])
+    checkboxes[i].bind("<Enter>", tooltip.hover)
+    checkboxes[i].bind("<Leave>", tooltip.unhover)
 
 # Create a list of labels to display the results
 labels = []
